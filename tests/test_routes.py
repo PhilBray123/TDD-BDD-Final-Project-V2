@@ -174,7 +174,8 @@ class TestProductRoutes(TestCase):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
         data = response.get_json()
         self.assertIn("was not found", data["message"])
-        def test_update_product(self):
+
+    def test_update_product(self):
         """It should Update an existing Product"""
         # create a product to update
         test_product = ProductFactory()
@@ -202,7 +203,7 @@ class TestProductRoutes(TestCase):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
         new_count = self.get_product_count()
         self.assertEqual(new_count, product_count - 1)
-      
+
     def test_get_product_list(self):
         """It should Get a list of Products"""
         self._create_products(5)
@@ -227,7 +228,7 @@ class TestProductRoutes(TestCase):
         for product in data:
             self.assertEqual(product["name"], test_name)
 
-      def test_query_by_category(self):
+    def test_query_by_category(self):
         """It should Query Products by category"""
         products = self._create_products(10)
         category = products[0].category
