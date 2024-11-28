@@ -20,7 +20,7 @@ Product Store Service with UI
 """
 from flask import jsonify, request, abort
 from flask import url_for  # noqa: F401 pylint: disable=unused-import
-from service.models import Product
+from service.models import Product, Category
 from service.common import status  # HTTP Status Codes
 from . import app
 
@@ -97,7 +97,6 @@ def create_products():
 @app.route("/products", methods=["GET"])
 def list_products():
     """Returns a list of Products"""
-    from service.models import Product, Category
     app.logger.info("Request to list Products...")
     products = []
     name = request.args.get("name")
