@@ -28,6 +28,7 @@ import os
 import logging
 from decimal import Decimal
 from unittest import TestCase
+from urllib.parse import quote_plus
 from service import app
 from service.common import status
 from service.models import db, init_db, Product
@@ -214,7 +215,6 @@ class TestProductRoutes(TestCase):
 
     def test_query_by_name(self):
         """It should Query Products by name"""
-        from urllib.parse import quote_plus
         products = self._create_products(5)
         test_name = products[0].name
         name_count = len([product for product in products if product.name == test_name])
