@@ -144,6 +144,7 @@ def step_impl(context, message):
 
 @then('I should see "{text_string}" in the "{element_name}" field')
 def step_impl(context, text_string, element_name):
+    raise NotImplementedError("{text_string}" in the "{element_name}" field')
     element_id = ID_PREFIX + element_name.lower().replace(' ', '_')
     found = WebDriverWait(context.driver, context.wait_seconds).until(
         expected_conditions.text_to_be_present_in_element_value(
